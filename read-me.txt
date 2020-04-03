@@ -1,0 +1,23 @@
+simple-rest-api application is to perform the CRUD operations usind RESTful APIs in NodeJS.
+Below the major components:
+
+index.js 						--> Entry point to initialze the database, web server.
+config/web-server.js 			--> configurable port.
+config/dbconfig.js 				--> Have the DB details like username,password, dbstring and connection pool info.
+config/constants.json			--> All constants as key:value pair. To make the application loosely coupled, configuring all the queries other info etc. in this file.
+
+services/web-server.js			--> This hold the web-server start/stop methods.
+services/router.js			  	--> REST API routing based on the method call.
+services/database.js			--> DB operations initialization, execution of sqls etc.
+
+db-apis/canvases.js				--> Individual routing methods to call respective DB operations.
+
+
+To add/update new database(s), need to update below files to add the new objects/override methods.
+
+1) config/dbconfig.js 		 --> to update db config info if any.
+2) config/constants.js		 --> to add new constants for respective data base.
+3) services/database.js		 --> to create new database object and override methods based on data base.
+4) db-apis/canvases.js		 --> to set the sql strings (It can be moved to services/database.js)
+
+
